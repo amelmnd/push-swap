@@ -1,226 +1,130 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "list.h"
 
-/**
-* Retourne une nouvelle Liste
-* @return Une liste vide
-*/
-List new_list(void)
+List	new_list(void)
 {
-	return NULL;
+	return (NULL);
 }
 
-/*---------------------------------------------------------------------*/
-
-/**
-* Vérifie si une List est vide
-* @param li La liste à tester
-* @return true si elle est vide, faux sinon
-*/
-Bool is_empty_list(List li)
+int	is_empty_list(List li)
 {
-	if(li == NULL)
-		return true;
+	if (li == NULL)
+		return (1);
 
-	return false;
+	return (0);
 }
 
-/*---------------------------------------------------------------------*/
-
-/**
-* Affiche une Liste
-* @param li La liste à afficher
-*/
-void print_list(List li)
+//compter le  nombre d'element
+int	list_length(List li)
 {
-	if(is_empty_list(li))
+	int	size;
+
+	size = 0;
+	if (is_empty_list(li) == 0)
 	{
-		printf("Rien a afficher, la Liste est vide.\n");
-		return;
+		while (li != NULL)
+		{
+			size++;
+			li = li->next;
+		}
 	}
+	return (size);
+}
 
-	while(li != NULL)
+void	print_list(List li)
+{
+	if (is_empty_list(li))
 	{
-		printf("[%d] ", li->value);
+		printf("la liste est vide\n");
+		return ;
+	}
+	while (li != NULL)
+	{
+		printf("[%d]\n", li->value);
 		li = li->next;
 	}
-
 	printf("\n");
 }
 
-/*---------------------------------------------------------------------*/
-
-/**
-* Retourne la taille de la Liste
-* @param li La liste
-* @return Le nombre d'élements de la Liste
-*/
-int list_length(List li)
+//Ajouter un element en debut de liste  a l'extremite NULL
+List	push_back_list(List li, int x)
 {
-	int size = 0;
-
-	if(is_empty_list(li))
-		return size;
-
-	while(li != NULL)
-	{
-		size++;
-		li = li->next;
-	}
-
-	return size;
-}
-
-/*---------------------------------------------------------------------*/
-
-/**
-* Ajoute un entier en fin de Liste
-* @param li La liste
-* @param x L'entier à insérer
-* @return La liste avec le nouvel élement ajouté
-*/
-List push_back_list(List li, int x)
-{
-	ListElement *element;
+	// creation d'un nouvelle element
+	ListElement	*element;
 
 	element = malloc(sizeof(*element));
-
-	if(element == NULL)
-	{
-		fprintf(stderr, "Erreur : probleme allocation dynamique.\n");
-		exit(EXIT_FAILURE);
-	}
-
+	if (!element)
+		return (NULL);
 	element->value = x;
-	element->next = NULL;
-
-	if(is_empty_list(li))
-		return element;
-
+	element -> next = NULL;
+	// ajout de l'element a la chaine
+	if (is_empty_list(li))
+		return (element);
 	ListElement *temp;
 	temp = li;
-
-	while(temp->next != NULL)
+	while (temp->next != NULL)
 		temp = temp->next;
-
 	temp->next = element;
-
-	return li;
+	return (li);
 }
 
-/*---------------------------------------------------------------------*/
-
-/**
-* Ajoute un entier en début de Liste
-* @param li La liste
-* @param x L'entier à insérer
-* @return La liste avec le nouvel élement ajouté
-*/
-List push_front_list(List li, int x)
+//Ajouter un element avant debut de liste  a l'extremite NON NULL (element > 1)
+List	push_front_list(List li, int x)
 {
-	ListElement *element;
+	ListElement	*element;
 
 	element = malloc(sizeof(*element));
-
-	if(element == NULL)
-	{
-		fprintf(stderr, "Erreur : probleme allocation dynamique.\n");
-		exit(EXIT_FAILURE);
-	}
-
+	if (!element)
+		return (NULL);
 	element->value = x;
-
-	if(is_empty_list(li))
+	if (!is_empty_list(li))
 		element->next = NULL;
 	else
 		element->next = li;
 
-	return element;
+	return (element);
 }
 
-/*---------------------------------------------------------------------*/
-
-/**
-* Supprime un entier de la fin de la Liste
-* @param li La liste
-* @return La liste sans l'élément retiré
-*/
-List pop_back_list(List li)
+// Supprimer le derniere element de la liste (cote NULL)
+List	pop_back_list(List li)
 {
-	if(is_empty_list(li))
-		return new_list();
+	ListElement	*temp;
+	ListElement	*before;
 
-	//Si la liste n'a qu'un seul élément
-	if(li->next == NULL)
+	if (is_empty_list(li))
+		return (new_list());
+	if (li -> next == NULL)
 	{
-		free(li);
-		li = NULL;
-
-		return new_list();
+		printf("<%d>\n", li-> value);
+		return (new_list());
 	}
-
-	ListElement *temp = li;
-	ListElement *before = li;
-
-	while(temp->next != NULL)
+	else
 	{
-		before = temp;
-		temp = temp->next;
+		temp = li;
+		before = li;
+		while (temp->next != NULL)
+		{
+			before = temp;
+			temp = temp->next;
+		}
+		printf("<%d>\n", temp-> value);
+		before->next = NULL;
 	}
-
-	before->next = NULL;
-
-	free(temp);
-	temp = NULL;
-
-	return li;
+	return (li);
 }
 
-/*---------------------------------------------------------------------*/
-
-/**
-* Supprime un entier de la tête de la Liste
-* @param li La liste
-* @return La liste sans l'élément retiré
-*/
-List pop_front_list(List li)
+//Supprimer le premiere element de la liste (cote non NULL)
+List	pop_front_list(List li)
 {
-	ListElement *element;
+	ListElement	*element;
 
+	if (is_empty_list(li))
+		return (new_list());
 	element = malloc(sizeof(*element));
-
-	if(element == NULL)
-	{
-		fprintf(stderr, "Erreur : probleme allocation dynamique.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	if(is_empty_list(li))
-		return new_list();
-
+	if (!element)
+		return (NULL);
+	printf("(%d)\n", li-> value);
 	element = li->next;
-
-	free(li);
-	li = NULL;
-
-	return element;
+	return (element);
 }
 
-/*---------------------------------------------------------------------*/
-
-/**
-* Supprime tous les éléments d'une Liste
-* @param li La liste
-* @return Une Liste vide
-*/
-List clear_list(List li)
-{
-	if(is_empty_list(li))
-		return new_list();
-
-	while(li != NULL)
-		li = pop_front_list(li);
-
-	return li;
-}
