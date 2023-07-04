@@ -26,15 +26,11 @@ t_list	ft_lstadd_front(t_list *list, int new)
 	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 		exit(EXIT_FAILURE);
+	new_node->data = new;
+	
 	if (list == NULL)
-	{
-		new_node->data = new;
 		new_node->next = NULL;
-	}
 	else
-	{
-		new_node->data = new;
 		new_node->next = list;
-	}
 	return (*new_node);
 }
