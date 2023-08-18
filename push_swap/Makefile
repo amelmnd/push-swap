@@ -11,7 +11,14 @@ EXEC = push_swap
 ORIGIN = main.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = for_dev.c ft_libft_utils.c ft_push.c utils.c
+
+DIR_UTILS = utils
+SRCS_UTILS =	$(DIR_UTILS)/for_dev.c\
+				$(DIR_UTILS)/ft_libft_utils.c \
+				$(DIR_UTILS)/fn_utils.c
+DIR_INT = instruction
+SRCS_UTILS =	$(DIR_INT)/ft_push.c
+SRCS = $(SRCS_UTILS)
 OBJS = $(SRCS:.c=.o)
 
 # RULES
@@ -24,7 +31,7 @@ $(EXEC): $(OBJS)
 	@echo "$(COLOUR_GREEN)exec generate 🍀$(END_COLOR)"
 
 run:
-	@$(CC) $(CFLAGS) $(ORIGIN) $(SRCS) -o $(EXEC)
+	@$(CC) $(CFLAGS) -Iinclude $(ORIGIN) $(SRCS) -o $(EXEC)
 	@echo "$(COLOUR_RED)🚀 run$(END_COLOR)"
 	@./$(EXEC)
 
