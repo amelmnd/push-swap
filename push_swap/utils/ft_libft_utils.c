@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   for_dev.c                                          :+:      :+:    :+:   */
+/*   ft_libft_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:39:51 by amennad           #+#    #+#             */
-/*   Updated: 2023/07/05 12:29:43 by amennad          ###   ########.fr       */
+/*   Created: 2023/07/05 10:29:49 by amennad           #+#    #+#             */
+/*   Updated: 2023/08/18 15:21:50 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_pile(t_pile pile)
+void	ft_putstr(char *s)
 {
-	if (pile == NULL)
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
 	{
-		printf("pile is empty\n");
-		return ;
-	}
-	else
-	{
-		while (pile != NULL)
-		{
-			printf("-> [%d]\n", pile->value);
-			pile = pile->next;
-		}
+		write(1, &s[i], 1);
+		i++;
 	}
 }

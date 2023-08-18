@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/07/05 13:13:27 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/18 17:06:09 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,36 @@
 # define PUSH_SWAP_H
 
 # include <stdio.h> //a delete
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
-} t_node,	*t_pile;
+}					t_node;
 
+typedef struct s_end_stack{
+	t_node			*end_stack;
+}	t_end_stack;
 
-// FN DEV
-void	print_pile(t_pile pile);
+typedef enum BOOL
+{
+	FALSE,
+	TRUE
+}					t_bool;
 
-// FN UTILS
-void	ft_putstr(char *s);
-void	ft_error(void);
-int		is_empty(t_pile pile);
+// FN DEV DELETE LATER
+void				print_pile(t_node *pile);
 
-// INSTRUCTION
-t_pile	push_top_node(t_pile pile, int item);
-t_pile	push_button_node(t_pile pile, int element);
+// UTILS
+t_bool				is_empty(t_node *pile);
+void				ft_error(void);
 
+// LIBFT UTILS
+void				ft_putstr(char *s);
+
+// CHAIN LIST
+void				ft_push(t_node pile, int item);
 
 #endif
