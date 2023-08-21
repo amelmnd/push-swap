@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/21 18:24:31 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/21 18:25:27 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ t_node				*ft_push(t_node *pile, int item);
 int					ft_pop(t_node *pile);
 void				ft_swap(t_node *pile);
 void				ft_rotate(t_node *pile);
+void				ft_reverse_rotate(t_node *pile);
 
 #endif
