@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/18 17:06:09 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:40:40 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,16 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-typedef struct s_end_stack{
-	t_node			*end_stack;
-}	t_end_stack;
-
-typedef enum BOOL
+typedef struct s_stack
 {
-	FALSE,
-	TRUE
-}					t_bool;
+	t_node			*stack_top;
+}					t_stack;
 
 // FN DEV DELETE LATER
 void				print_pile(t_node *pile);
 
 // UTILS
-t_bool				is_empty(t_node *pile);
+int					is_empty(t_node *pile);
 void				ft_error(void);
 
 // LIBFT UTILS
@@ -45,5 +40,6 @@ void				ft_putstr(char *s);
 
 // CHAIN LIST
 void				ft_push(t_node pile, int item);
+
 
 #endif
