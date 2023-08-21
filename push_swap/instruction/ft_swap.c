@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/21 15:13:55 by amennad          ###   ########.fr       */
+/*   Created: 2023/08/21 15:16:20 by amennad           #+#    #+#             */
+/*   Updated: 2023/08/21 15:18:58 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_empty(t_node *pile)
+void	ft_swap(t_node *pile)
 {
-	if (pile == NULL)
-		return (1);
-	return (0);
+	int	tmp;
+
+	if (pile == NULL || pile->next == NULL)
+		return ;
+	tmp = pile->value;
+	pile->value = pile->next->value;
+	pile->next->value = tmp;
 }
-
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
-	{
-		ft_putstr("Error");
-		exit(EXIT_FAILURE);
-	}
-}
-
-
