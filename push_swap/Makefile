@@ -12,13 +12,18 @@ ORIGIN = main.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-DIR_UTILS = utils
-SRCS_UTILS =	$(DIR_UTILS)/for_dev.c\
-				$(DIR_UTILS)/ft_libft_utils.c \
-				$(DIR_UTILS)/fn_utils.c
-DIR_INT = instruction
-SRCS_UTILS =	$(DIR_INT)/ft_push.c
-SRCS = $(SRCS_UTILS)
+DIR_UTILS = utils/
+SRCS_UTILS =	$(DIR_UTILS)for_dev.c\
+				$(DIR_UTILS)ft_libft_utils.c \
+				$(DIR_UTILS)fn_utils.c
+
+DIR_INSTRUC= instruction/
+SRCS_INSTRUC=	$(DIR_INSTRUC)ft_push.c \
+				$(DIR_INSTRUC)ft_pop.c \
+				# $(DIR_INSTRUC)/ft_swap.c \
+				# $(DIR_INSTRUC)/ft_rotate.c \
+				# $(DIR_INSTRUC)/ft_reverse_rotate.c
+SRCS = $(SRCS_UTILS) $(SRCS_INSTRUC)
 OBJS = $(SRCS:.c=.o)
 
 # RULES
@@ -35,6 +40,9 @@ run:
 	@echo "$(COLOUR_RED)🚀 run$(END_COLOR)"
 	@./$(EXEC)
 
+leaks:
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXEC)
+
 clean:
 	@rm -rf *.o
 	@echo "$(COLOUR_BLUE)ft_printf clean 🐟$(END_COLOR)"
@@ -46,5 +54,4 @@ fclean : clean
 re:fclean all
 	@echo "$(COLOUR_YELLOW)ft_printf re 🍋$(END_COLOR)"
 
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re run leaks
