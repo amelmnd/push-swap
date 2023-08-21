@@ -21,7 +21,7 @@ DIR_INSTRUC= instruction/
 SRCS_INSTRUC=	$(DIR_INSTRUC)ft_push.c \
 				$(DIR_INSTRUC)ft_pop.c \
 				$(DIR_INSTRUC)/ft_swap.c \
-				# $(DIR_INSTRUC)/ft_rotate.c \
+				$(DIR_INSTRUC)/ft_rotate.c \
 				# $(DIR_INSTRUC)/ft_reverse_rotate.c
 SRCS = $(SRCS_UTILS) $(SRCS_INSTRUC)
 OBJS = $(SRCS:.c=.o)
