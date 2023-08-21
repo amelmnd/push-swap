@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:12:00 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/18 16:03:17 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:35:18 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,29 @@
 int	main(void)
 {
 	t_node	*pile_a;
-	// t_node	*pile_b;
+	t_node	*pile_b;
 
-	pile_a->next = NULL;
-	// pile_b = NULL;
+	pile_a = NULL;
+	pile_b = NULL;
+	printf("\n--------PILE A--------\n");
+	printf("\n***ft_push**\n");
+	pile_a = ft_push(pile_a, 58);
+	pile_a = ft_push(pile_a, -10);
+	pile_a = ft_push(pile_a, 5);
+	pile_a = ft_push(pile_a, 365);
+	print_pile(pile_a);
+	printf("\n***ft_pop**\n");
+	printf("pop value = %d\n", ft_pop(pile_a));
 
-	ft_push(&pile_a, 1);
-	if (is_empty(&pile_a))
-		printf("empty\n");
-	else
-		print_pile(&pile_a);
+	print_pile(pile_a);
+	printf("\n--------PILE B--------\n");
+	print_pile(pile_b);
+	// ? block for test pile
+	// if (is_empty(pile_a))
+	// 	printf("empty\n");
+	// else
+	// 	print_pile(&pile_a);
+	// ! block for test leaks
+	system("leaks push_swap");
 	return (0);
 }
