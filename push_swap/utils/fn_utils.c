@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/21 11:08:25 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/21 15:10:29 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ int	is_empty(t_node *pile)
 	return (0);
 }
 
-void	ft_error(void)
+void	ft_exit(int status)
 {
-	ft_putstr("Error");
-	exit(EXIT_FAILURE);
+	if (status == 0)
+		exit(EXIT_SUCCESS);
+	else if (status == -1)
+	{
+		ft_putstr("Error");
+		exit(EXIT_FAILURE);
+	}
 }
