@@ -10,7 +10,7 @@ END_COLOR=\033[0m
 EXEC = push_swap
 ORIGIN = main.c
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I./include/
 
 DIR_UTILS = utils/
 SRCS_UTILS =	$(DIR_UTILS)for_dev.c\
@@ -23,35 +23,36 @@ SRCS_INSTRUC=	$(DIR_INSTRUC)ft_push.c \
 				$(DIR_INSTRUC)/ft_swap.c \
 				$(DIR_INSTRUC)/ft_rotate.c \
 				$(DIR_INSTRUC)/ft_reverse_rotate.c
-SRCS = $(SRCS_UTILS) $(SRCS_INSTRUC)
+SRCS = $(SRCS_UTILS) $(SRCS_INSTRUC) $(ORIGIN)
 OBJS = $(SRCS:.c=.o)
 
 # RULES
 all: $(EXEC)
 
-$(EXEC): $(OBJS)
-	@$(CC) $(CFLAGS) -c $(SRCS)
-	@echo "$(COLOUR_GREEN).o generate 🍀$(END_COLOR)"
-	@$(CC) $(CFLAGS) $(ORIGIN) $(OBJS) -o $(EXEC)
-	@echo "$(COLOUR_GREEN)exec generate 🍀$(END_COLOR)"
+libft:
+	@make -C ./include/libft
 
-run:
-	@$(CC) $(CFLAGS) -Iinclude $(ORIGIN) $(SRCS) -o $(EXEC)
-	@echo "$(COLOUR_RED)🚀 run$(END_COLOR)"
-	@./$(EXEC)
+$(EXEC): $(OBJS) libft
+	@$(CC) -I ./include $(OBJS) ./include/libft/libft.a $(CFLAGS) -o $(EXEC)
+	@echo "$(COLOUR_GREEN)exec generate 🍀$(END_COLOR)"
 
 leaks:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(EXEC)
 
+norme:
+	norminette $(SRCS) ./include/libft/*.c ./include/libft/*.h
+
 clean:
+	@cd ./include/libft; make clean
 	@rm -rf *.o
 	@echo "$(COLOUR_BLUE)ft_printf clean 🐟$(END_COLOR)"
 
 fclean : clean
+	@cd ./include/libft && make fclean
 	@rm -rf $(NAME) $(EXEC)
 	@echo "$(COLOUR_BLUE)ft_printf fclean 🐳$(END_COLOR)"
 
 re:fclean all
-	@echo "$(COLOUR_YELLOW)ft_printf re 🍋$(END_COLOR)"
+	@echo "$(COLOUR_MAGENTA)make re OK 🌸$(END_COLOR)"
 
 .PHONY: all clean fclean re run leaks
