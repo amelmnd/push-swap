@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 11:23:57 by amennad          ###   ########.fr       */
+/*   Created: 2023/03/29 16:59:04 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/04 14:20:22 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_empty(t_node *pile)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (pile == NULL)
-		return (1);
-	return (0);
-}
-
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else if (n < 0)
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(-n, fd);
 	}
+	else if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }
-
-

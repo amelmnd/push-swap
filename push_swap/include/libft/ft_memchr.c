@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 11:23:57 by amennad          ###   ########.fr       */
+/*   Created: 2023/04/10 09:33:37 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/10 09:48:50 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_empty(t_node *pile)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	if (pile == NULL)
-		return (1);
+	size_t			i;
+	unsigned char	*s;
+
+	i = 0;
+	s = (unsigned char *)str;
+	while (i < n)
+	{
+		if (s[i] == (unsigned char)c)
+		{
+			return ((void *)&s[i]);
+		}
+		i++;
+	}
 	return (0);
 }
-
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
-	}
-}
-
-

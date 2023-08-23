@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 11:23:57 by amennad          ###   ########.fr       */
+/*   Created: 2023/03/29 16:59:09 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/04 09:42:05 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_empty(t_node *pile)
+/**
+ * @Writes the character to the descriptor
+ *
+ * @param s: character string scanned
+ * @param fd : file descriptor
+ */
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (pile == NULL)
-		return (1);
-	return (0);
-}
+	int	i;
 
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
+		write(fd, &s[i], 1);
+		i++;
 	}
 }
-
-

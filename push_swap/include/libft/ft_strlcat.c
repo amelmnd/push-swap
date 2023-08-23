@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 11:23:57 by amennad          ###   ########.fr       */
+/*   Created: 2023/04/08 15:23:32 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/08 17:25:00 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include <stdio.h>
 
-int	is_empty(t_node *pile)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if (pile == NULL)
-		return (1);
-	return (0);
-}
+	size_t	i;
+	size_t	len_total;
 
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
+	i = 0;
+	len_total = ft_strlen(dst);
+	if (dstsize <= len_total)
+		return (dstsize + ft_strlen(src));
+	while (src[i] != '\0' && len_total + 1 < dstsize)
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
+		dst[len_total] = src[i];
+		len_total++;
+		i++;
 	}
+	dst[len_total] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[i]));
 }
-
-

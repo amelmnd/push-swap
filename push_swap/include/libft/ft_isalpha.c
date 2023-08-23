@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 11:23:57 by amennad          ###   ########.fr       */
+/*   Created: 2023/03/29 16:53:32 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/03 14:53:35 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_empty(t_node *pile)
+int	ft_isalpha(int c)
 {
-	if (pile == NULL)
+	if ((c >= 'A' && c <= 'Z')
+		|| (c >= 'a' && c <= 'z'))
 		return (1);
 	return (0);
 }
-
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
-	}
-}
-
-

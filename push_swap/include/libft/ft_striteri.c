@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libft_utils.c                                   :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:29:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/18 15:21:50 by amennad          ###   ########.fr       */
+/*   Created: 2023/04/08 19:04:29 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/08 19:12:16 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ft_putstr(char *s)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
-		write(1, &s[i], 1);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }

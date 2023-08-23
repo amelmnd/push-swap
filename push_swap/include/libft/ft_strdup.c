@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 11:23:57 by amennad          ###   ########.fr       */
+/*   Created: 2023/04/07 11:01:48 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/08 13:00:17 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int	is_empty(t_node *pile)
+char	*ft_strdup(const char *s1)
 {
-	if (pile == NULL)
-		return (1);
-	return (0);
-}
+	int		i;
+	char	*copy;
 
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
+	i = 0;
+	copy = (char *) malloc(sizeof(char) *(ft_strlen(s1)) + 1);
+	if (!copy)
+		return (NULL);
+	while (i < (int)ft_strlen(s1))
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
+		copy[i] = s1[i];
+		i++;
 	}
+	copy[i] = '\0';
+	return (copy);
 }
-
-
