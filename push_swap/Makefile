@@ -14,8 +14,12 @@ CFLAGS = -Wall -Wextra -Werror -I./include/
 
 DIR_UTILS = utils/
 SRCS_UTILS =	$(DIR_UTILS)for_dev.c\
-				$(DIR_UTILS)ft_libft_utils.c \
 				$(DIR_UTILS)fn_utils.c
+
+DIR_PARS = parsing/
+SRCS_PARS =	$(DIR_PARS)has_valid_arg.c\
+			$(DIR_PARS)ft_split_atoi.c\
+			#$(DIR_PARS)
 
 DIR_INSTRUC= instruction/
 SRCS_INSTRUC=	$(DIR_INSTRUC)ft_push.c \
@@ -23,7 +27,8 @@ SRCS_INSTRUC=	$(DIR_INSTRUC)ft_push.c \
 				$(DIR_INSTRUC)/ft_swap.c \
 				$(DIR_INSTRUC)/ft_rotate.c \
 				$(DIR_INSTRUC)/ft_reverse_rotate.c
-SRCS = $(SRCS_UTILS) $(SRCS_INSTRUC) $(ORIGIN)
+
+SRCS = $(SRCS_UTILS) $(SRCS_PARS) $(SRCS_INSTRUC) $(ORIGIN)
 OBJS = $(SRCS:.c=.o)
 
 # RULES
@@ -34,6 +39,10 @@ libft:
 
 $(EXEC): $(OBJS) libft
 	@$(CC) -I ./include $(OBJS) ./include/libft/libft.a $(CFLAGS) -o $(EXEC)
+	@echo "$(COLOUR_GREEN)objs & exec generate 🍀$(END_COLOR)"
+
+run: libft
+	@$(CC) -I ./include $(SRCS) ./include/libft/libft.a $(CFLAGS) -o $(EXEC)
 	@echo "$(COLOUR_GREEN)exec generate 🍀$(END_COLOR)"
 
 leaks:
@@ -44,7 +53,7 @@ norme:
 
 clean:
 	@cd ./include/libft; make clean
-	@rm -rf *.o
+	@rm -rf $(OBJS)
 	@echo "$(COLOUR_BLUE)ft_printf clean 🐟$(END_COLOR)"
 
 fclean : clean
