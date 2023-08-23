@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fn_utils.c                                         :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 11:23:57 by amennad          ###   ########.fr       */
+/*   Created: 2023/03/30 10:49:57 by amennad           #+#    #+#             */
+/*   Updated: 2023/04/25 09:35:36 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	is_empty(t_node *pile)
+char	*ft_strchr(const char *s, int c)
 {
-	if (pile == NULL)
-		return (1);
+	int		i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char) c)
+		{
+			return ((char *) &s[i]);
+		}
+		i++;
+	}
+	//recherche dernier /0
+	if (s[i] == (char) c)
+	{
+		return ((char *) &s[i]);
+	}
 	return (0);
 }
-
-void	ft_exit(int status)
-{
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
-	}
-}
-
-
