@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:13:29 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/24 14:27:25 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/24 15:12:45 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ int	ft_atoi_ps(char *str)
 	return (res);
 }
 
-void	create_array(char *str, char sep, int tab_size, int *tab)
+void	complite_pile(char *str, char sep, int tab_size, t_node *pile)
 {
 	int	i;
+	int	j;
 	int	startword;
 	int	len_world;
-	int	j;
 
 	j = 0;
 	i = 0;
@@ -83,39 +83,25 @@ void	create_array(char *str, char sep, int tab_size, int *tab)
 			{
 				len_world++;
 				if ((str[i + 1] == sep || str[i + 1] == '\0') && j < tab_size)
-					// TODO : leakes ici du a la ligne en dessous comprendre pourquoi' le nombre de leaks depend du nombre d'element de la chaine qui est split
-					// voir par la suite car normalement ce tableau est creer les elements vont dans une liste chainee et le tableau est free
-					//le probleme ne se poser en cas d'erreur de caractere
-					tab[j++] = ft_atoi_ps(ft_substr(str, startword, len_world));
+					pile = ft_push(pile, ft_atoi_ps(ft_substr(str, startword,
+									len_world)));
 				i++;
 			}
 		}
 	}
-	tab[j] = 0;
 }
 
-int	*ft_split_atoi(char const *s, char sep)
+t_node	*ft_split_atoi(char *s, char sep, t_node *pile)
 {
 	int		tab_size;
 	char	*str;
-	int		*tab;
-	int		*error;
 
 	str = (char *)s;
 	if (!str)
-	{
-		error = (int *)ft_calloc(1, sizeof(int));
-		return (error);
-	}
+		exit(-1);
 	tab_size = nb_str(str, sep);
 	if (tab_size == 0)
-	{
-		error = (int *)ft_calloc(1, sizeof(int));
-		return (error);
-	}
-	tab = (int *)ft_calloc(tab_size + 1, sizeof(int));
-	if (!tab)
-		return (NULL);
-	create_array(str, sep, tab_size, tab);
-	return (tab);
+		exit(-1);
+	complite_pile(str, sep, tab_size, pile);
+	return (pile);
 }

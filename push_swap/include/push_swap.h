@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/24 14:24:33 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/24 15:11:30 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,19 @@ typedef struct s_stack
 
 // FN DEV DELETE LATER
 void				print_pile(t_node *pile);
+int					nb_str(char *str, char c);
 
 // UTILS
 void				ft_exit(int status);
 int					ft_int_array_len(int *nb);
 
 // PARSING
-void				check_arg(char *argv[], int *argv_split);
 int					has_valid_arg(char *value);
-int					*ft_split_atoi(char const *s, char sep);
 int					ft_atoi_ps(char *str);
 void				has_duplicate(int *array);
+
+t_node				*check_arg(char *argv[], t_node *pile);
+t_node				*ft_split_atoi(char *s, char sep, t_node *pile);
 
 // CHAIN LIST
 int					is_empty(t_node *pile);
