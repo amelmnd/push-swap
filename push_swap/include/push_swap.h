@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 16:23:29 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/23 17:53:59 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ void				print_pile(t_node *pile);
 
 // UTILS
 void				ft_exit(int status);
+int					ft_int_array_len(int *nb);
 
 // PARSING
-void				has_valid_arg(char *value);
+int					has_valid_arg(char *value);
 int					*ft_split_atoi(char const *s, char sep);
 int					ft_atoi_ps(char *str);
+void				has_duplicate(int *array);
 
 // CHAIN LIST
 int					is_empty(t_node *pile);
