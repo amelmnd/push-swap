@@ -20,6 +20,7 @@ DIR_PARS = parsing/
 SRCS_PARS =	$(DIR_PARS)has_valid_arg.c\
 			$(DIR_PARS)ft_split_atoi.c\
 			$(DIR_PARS)has_duplicate.c\
+			$(DIR_PARS)check_arg.c\
 			#$(DIR_PARS)
 
 DIR_INSTRUC= instruction/

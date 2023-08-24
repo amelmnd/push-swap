@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:13:29 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 16:37:44 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/24 14:27:25 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ void	create_array(char *str, char sep, int tab_size, int *tab)
 			{
 				len_world++;
 				if ((str[i + 1] == sep || str[i + 1] == '\0') && j < tab_size)
+					// TODO : leakes ici du a la ligne en dessous comprendre pourquoi' le nombre de leaks depend du nombre d'element de la chaine qui est split
+					// voir par la suite car normalement ce tableau est creer les elements vont dans une liste chainee et le tableau est free
+					//le probleme ne se poser en cas d'erreur de caractere
 					tab[j++] = ft_atoi_ps(ft_substr(str, startword, len_world));
 				i++;
 			}
