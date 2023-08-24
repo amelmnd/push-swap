@@ -19,6 +19,7 @@ SRCS_UTILS =	$(DIR_UTILS)for_dev.c\
 DIR_PARS = parsing/
 SRCS_PARS =	$(DIR_PARS)has_valid_arg.c\
 			$(DIR_PARS)ft_split_atoi.c\
+			$(DIR_PARS)has_duplicate.c\
 			#$(DIR_PARS)
 
 DIR_INSTRUC= instruction/
@@ -54,12 +55,12 @@ norme:
 clean:
 	@cd ./include/libft; make clean
 	@rm -rf $(OBJS)
-	@echo "$(COLOUR_BLUE)ft_printf clean 🐟$(END_COLOR)"
+	@echo "$(COLOUR_BLUE) clean 🐟$(END_COLOR)"
 
 fclean : clean
 	@cd ./include/libft && make fclean
 	@rm -rf $(NAME) $(EXEC)
-	@echo "$(COLOUR_BLUE)ft_printf fclean 🐳$(END_COLOR)"
+	@echo "$(COLOUR_BLUE) fclean 🐳$(END_COLOR)"
 
 re:fclean all
 	@echo "$(COLOUR_MAGENTA)make re OK 🌸$(END_COLOR)"
