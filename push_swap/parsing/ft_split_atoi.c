@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:13:29 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/24 15:12:45 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/25 12:02:32 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	nb_str(char *str, char c)
 	return (nb_word);
 }
 
-int	ft_atoi_ps(char *str)
+int	ft_atoi_p(char *str)
 {
 	int			i;
 	int			neg;
@@ -62,33 +62,33 @@ int	ft_atoi_ps(char *str)
 	return (res);
 }
 
-void	complite_pile(char *str, char sep, int tab_size, t_node *pile)
+t_node	*complite_pile(char *str, char sep, int tab_size, t_node *pile)
 {
 	int	i;
 	int	j;
-	int	startword;
-	int	len_world;
+	int	start;
+	int	len;
 
 	j = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
-		len_world = 0;
+		len = 0;
 		if (str[i] == sep)
 			i++;
-		startword = i;
+		start = i;
 		if (str[i] != sep)
 		{
 			while (str[i] != sep && str[i] != '\0')
 			{
-				len_world++;
+				len++;
 				if ((str[i + 1] == sep || str[i + 1] == '\0') && j < tab_size)
-					pile = ft_push(pile, ft_atoi_ps(ft_substr(str, startword,
-									len_world)));
+					pile = ft_push(pile, ft_atoi_p(ft_substr(str, start, len)));
 				i++;
 			}
 		}
 	}
+	return (pile);
 }
 
 t_node	*ft_split_atoi(char *s, char sep, t_node *pile)
@@ -102,6 +102,5 @@ t_node	*ft_split_atoi(char *s, char sep, t_node *pile)
 	tab_size = nb_str(str, sep);
 	if (tab_size == 0)
 		exit(-1);
-	complite_pile(str, sep, tab_size, pile);
-	return (pile);
+	return (complite_pile(str, sep, tab_size, pile));
 }
