@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/23 17:45:28 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/25 14:11:34 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,18 @@ void	ft_exit(int status)
 	}
 }
 
-int	ft_int_array_len(int *nb)
+
+void	ft_putstr(char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (nb[i])
+	while (s[i] != '\0')
 	{
+		write(1, &s[i], 1);
 		i++;
 	}
-	return (i);
+	write(1, "\n", 1);
 }
 
 

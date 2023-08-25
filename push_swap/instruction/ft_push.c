@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:44:40 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/21 11:38:45 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/25 15:04:43 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,32 @@ t_node	*ft_push(t_node *pile, int item)
 		new_node->next = pile;
 	return (new_node);
 }
+
+
+void	ft_push_pile(t_node **pile_cut, t_node **pile_add, char *pile_name)
+{
+	t_node	*node_to_push;
+
+	if (*pile_cut)
+	{
+		node_to_push = *pile_cut;
+		*pile_cut = (*pile_cut)->next;
+		node_to_push->next = *pile_add;
+		*pile_add = node_to_push;
+		ft_putstr(pile_name);
+	}
+}
+
+// EXPLICATION DU CODE
+/*
+void	pb(t_node **pile_a, t_node **pile_b) {
+	if (*pile_a) {
+		t_node *node_to_push = *pile_a;
+	// Prendre le premier élément de la pile a
+		*pile_a = (*pile_a)->next;     // Mettre à jour la pile a
+		node_to_push->next = *pile_b;
+	// Attacher le nœud au sommet de la pile b
+		*pile_b = node_to_push;         // Mettre à jour la pile b
+    }
+}
+*/

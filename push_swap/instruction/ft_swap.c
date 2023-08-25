@@ -6,13 +6,13 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:16:20 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/21 15:18:58 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/25 15:10:33 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_node *pile)
+void	ft_swap_pile(t_node *pile, char *pile_name)
 {
 	int	tmp;
 
@@ -21,4 +21,13 @@ void	ft_swap(t_node *pile)
 	tmp = pile->value;
 	pile->value = pile->next->value;
 	pile->next->value = tmp;
+	if (pile_name)
+		ft_putstr(pile_name);
+}
+
+void	ft_swap_ss(t_node *pile_a, t_node *pile_b)
+{
+	ft_swap_pile(pile_a, "");
+	ft_swap_pile(pile_b, "");
+	ft_putstr("ss");
 }
