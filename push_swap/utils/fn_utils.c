@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/25 14:11:34 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/28 10:47:34 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_exit(int status)
 	}
 }
 
-
 void	ft_putstr(char *s)
 {
 	int	i;
@@ -44,5 +43,19 @@ void	ft_putstr(char *s)
 	write(1, "\n", 1);
 }
 
+int	size_pile(t_node *pile)
+{
+	int	size;
 
-
+	size = 0;
+	if (pile)
+	{
+		while (pile != NULL)
+		{
+			pile = pile->next;
+			size++;
+		}
+		return (size);
+	}
+	return (0);
+}

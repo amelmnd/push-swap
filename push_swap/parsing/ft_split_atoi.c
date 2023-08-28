@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:13:29 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/25 12:02:32 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/28 10:45:11 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,31 +62,40 @@ int	ft_atoi_p(char *str)
 	return (res);
 }
 
-t_node	*complite_pile(char *str, char sep, int tab_size, t_node *pile)
+void	create_array(char *str, char sep, int tab_size, int *tab)
 {
 	int	i;
+	int	startword;
+	int	len_world;
 	int	j;
-	int	start;
-	int	len;
 
 	j = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
-		len = 0;
+		len_world = 0;
 		if (str[i] == sep)
 			i++;
-		start = i;
+		startword = i;
 		if (str[i] != sep)
 		{
 			while (str[i] != sep && str[i] != '\0')
 			{
-				len++;
+				len_world++;
 				if ((str[i + 1] == sep || str[i + 1] == '\0') && j < tab_size)
-					pile = ft_push(pile, ft_atoi_p(ft_substr(str, start, len)));
+					tab[j++] = ft_atoi_p(ft_substr(str, startword, len_world));
 				i++;
 			}
 		}
+	}
+	tab[j] = 0;
+}
+
+t_node	*ft_push_array(t_node *pile, int *tab, int tab_size)
+{
+	while (tab_size--)
+	{
+		pile = ft_push(pile, tab[tab_size]);
 	}
 	return (pile);
 }
@@ -95,6 +104,7 @@ t_node	*ft_split_atoi(char *s, char sep, t_node *pile)
 {
 	int		tab_size;
 	char	*str;
+	int		*tab;
 
 	str = (char *)s;
 	if (!str)
@@ -102,5 +112,10 @@ t_node	*ft_split_atoi(char *s, char sep, t_node *pile)
 	tab_size = nb_str(str, sep);
 	if (tab_size == 0)
 		exit(-1);
-	return (complite_pile(str, sep, tab_size, pile));
+	tab = (int *)ft_calloc(tab_size + 1, sizeof(int));
+	if (!tab)
+		return (NULL);
+	create_array(str, sep, tab_size, tab);
+	pile = ft_push_array(pile, tab, tab_size);
+	return (pile);
 }

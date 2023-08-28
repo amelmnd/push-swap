@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/25 15:18:27 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/25 18:34:32 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int					nb_str(char *str, char c);
 void				ft_exit(int status);
 int					ft_int_array_len(int *nb);
 void				ft_putstr(char *s);
+int					size_pile(t_node *pile);
 
 // PARSING
 t_node				*check_arg(int argc, char *argv[], t_node *pile);
@@ -44,6 +45,7 @@ int					has_valid_arg(char *value);
 int					ft_atoi_p(char *str);
 t_node				*ft_split_atoi(char *s, char sep, t_node *pile);
 void				has_duplicate_pile(t_node *pile);
+int					is_sorted(t_node *pile);
 
 // CHAIN LIST
 int					is_empty(t_node *pile);
@@ -60,5 +62,8 @@ void				ft_rotate_pile(t_node *pile, char *pile_name);
 void				ft_rotate_rr(t_node *pile_a, t_node *pile_b);
 void				ft_reverse_rotate_pile(t_node *pile, char *pile_name);
 void				ft_reverse_rotate_rrr(t_node *pile_a, t_node *pile_b);
+
+// EXECUTE INSTRUCTION
+void				execute_instruction(t_node *pile_a, t_node *pile_b);
 
 #endif
