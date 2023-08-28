@@ -20,20 +20,20 @@ DIR_PARS = parsing/
 SRCS_PARS =	$(DIR_PARS)has_valid_arg.c\
 			$(DIR_PARS)ft_split_atoi.c\
 			$(DIR_PARS)check_arg.c\
-			#$(DIR_PARS)
 
 DIR_INSTRUC= instruction/
 SRCS_INSTRUC=	$(DIR_INSTRUC)ft_push.c \
 				$(DIR_INSTRUC)ft_pop.c \
-				$(DIR_INSTRUC)/ft_swap.c \
-				$(DIR_INSTRUC)/ft_rotate.c \
-				$(DIR_INSTRUC)/ft_reverse_rotate.c
+				$(DIR_INSTRUC)ft_swap.c \
+				$(DIR_INSTRUC)ft_rotate.c \
+				$(DIR_INSTRUC)ft_reverse_rotate.c
 
-SRCS = $(SRCS_UTILS) $(SRCS_PARS) $(SRCS_INSTRUC) $(ORIGIN)
+SRCS = $(SRCS_UTILS) $(SRCS_PARS) $(SRCS_INSTRUC) execute_instruction.c $(ORIGIN)
 OBJS = $(SRCS:.c=.o)
 
 # RULES
-all: $(EXEC)
+# all: $(EXEC) //TODO during dev
+all: run
 
 libft:
 	@make -C ./include/libft

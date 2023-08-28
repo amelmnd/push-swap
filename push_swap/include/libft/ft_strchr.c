@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 10:49:57 by amennad           #+#    #+#             */
-/*   Updated: 2023/04/25 09:35:36 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/28 10:45:49 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	*ft_strchr(const char *s, int c)
 		}
 		i++;
 	}
-	//recherche dernier /0
 	if (s[i] == (char) c)
 	{
 		return ((char *) &s[i]);
