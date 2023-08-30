@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:20:05 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/28 10:47:14 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:49:57 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ int	is_sorted(t_node *pile)
 		if (current->value > current->next->value)
 		{
 			return (0);
+			// NON TRIER
 		}
 		current = current->next;
 	}
 	return (1);
+	// TRIER
 }
 
 t_node	*check_arg(int argc, char *argv[], t_node *pile_a)
