@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 18:38:15 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/30 18:41:57 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ int	size_pile(t_node *pile)
 	return (0);
 }
 
+//TODO cette fonction gerer 2 leaks
+/*
+2 (32 bytes) ROOT LEAK: 0x60000154c060 [16]  length: 1  "U"
+1 (16 bytes) 0x60000154c050 [16]
+*/
 void	index_more_small(t_node *pile, int *min, int size)
 {
 	t_node	*tmp1;

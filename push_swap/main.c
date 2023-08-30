@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:17:34 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 18:39:21 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/30 19:55:52 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	main(int argc, char *argv[])
 	if (pile_a == NULL)
 		ft_exit(-1);
 	execute_instruction(pile_a, pile_b);
-	// system("leaks push_swap");
+	system("leaks push_swap");
 	return (0);
 }

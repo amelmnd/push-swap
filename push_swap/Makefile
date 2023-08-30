@@ -32,6 +32,7 @@ DIR_SORT= sort/
 SRCS_SORT=	$(DIR_SORT)sort_three.c \
 			$(DIR_SORT)sort_four.c \
 			$(DIR_SORT)sort_five.c \
+			$(DIR_SORT)bubble_sort.c \
 
 SRCS = $(SRCS_UTILS) $(SRCS_PARS) $(SRCS_INSTRUC) execute_instruction.c $(SRCS_SORT) $(ORIGIN)
 OBJS = $(SRCS:.c=.o)
