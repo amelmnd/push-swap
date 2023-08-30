@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:13:29 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/28 10:45:11 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:47:35 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,17 @@ int	ft_atoi_p(char *str)
 	return (res);
 }
 
+void	create_int(int *tab, int j, char *str, int startword, int len_world)
+{
+	char	*tmp;
+
+	tmp = ft_substr(str, startword, len_world);
+	if (!tmp)
+		exit(-1);
+	tab[j] = ft_atoi_p(tmp);
+	free(tmp);
+}
+
 void	create_array(char *str, char sep, int tab_size, int *tab)
 {
 	int	i;
@@ -83,15 +94,14 @@ void	create_array(char *str, char sep, int tab_size, int *tab)
 			{
 				len_world++;
 				if ((str[i + 1] == sep || str[i + 1] == '\0') && j < tab_size)
-					tab[j++] = ft_atoi_p(ft_substr(str, startword, len_world));
+					create_int(tab, j++, str, startword, len_world);
 				i++;
 			}
 		}
 	}
-	tab[j] = 0;
 }
 
-t_node	*ft_push_array(t_node *pile, int *tab, int tab_size)
+t_node	*create_pile(t_node *pile, int *tab, int tab_size)
 {
 	while (tab_size--)
 	{
@@ -112,10 +122,11 @@ t_node	*ft_split_atoi(char *s, char sep, t_node *pile)
 	tab_size = nb_str(str, sep);
 	if (tab_size == 0)
 		exit(-1);
-	tab = (int *)ft_calloc(tab_size + 1, sizeof(int));
+	tab = (int *)malloc(sizeof(int) * tab_size + 1);
 	if (!tab)
 		return (NULL);
 	create_array(str, sep, tab_size, tab);
-	pile = ft_push_array(pile, tab, tab_size);
+	pile = create_pile(pile, tab, tab_size);
+	free(tab);
 	return (pile);
 }

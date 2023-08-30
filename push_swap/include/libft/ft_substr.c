@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 11:16:55 by amennad           #+#    #+#             */
-/*   Updated: 2023/04/08 13:00:34 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/28 11:08:10 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	result[i] = '\0';
 	return (result);
 }
-/*
-S EXISTE Sinon NULL
-strart len s 0
-stdup retune
-*/
