@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:48:26 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 17:59:47 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/30 19:09:19 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	is_reverse_sort(t_node *pile)
 	}
 	return (1);
 }
+
 
 void	execute_instruction(t_node *pile_a, t_node *pile_b)
 {
@@ -51,6 +52,7 @@ void	execute_instruction(t_node *pile_a, t_node *pile_b)
 	else if (size_pile_a > 5)
 	{
 		printf("---- more 5 ----\n");
+		call_buble_sort(pile_a, size_pile_a);
 	}
 	else
 		ft_exit(-1);

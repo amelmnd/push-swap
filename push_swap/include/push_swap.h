@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 18:38:38 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/30 19:26:44 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,14 @@
 typedef struct s_node
 {
 	int				value;
+	int				index;
 	struct s_node	*next;
 }					t_node;
-
-typedef struct s_pile
-{
-	t_node			*pile_top;
-}					t_pile;
 
 // FN DEV DELETE LATER
 void				print_pile(t_node *pile);
 int					nb_str(char *str, char c);
+void				print_pile_index(t_node *pile);
 
 // UTILS
 void				ft_exit(int status);
@@ -69,5 +66,7 @@ void				execute_instruction(t_node *pile_a, t_node *pile_b);
 void				sort_three(t_node *pile_a);
 void				sort_four(t_node *pile_a, t_node *pile_b, int size_list);
 void				sort_five(t_node *pile_a, t_node *pile_b, int size_list);
+void				bubble_sort(int arr[], int n);
+void				call_buble_sort(t_node *pile_a, int size_pile_a);
 
 #endif
