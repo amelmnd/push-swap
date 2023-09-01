@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five.c                                        :+:      :+:    :+:   */
+/*   five_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 17:49:46 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 18:38:42 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/31 10:56:00 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft/libft.h"
 #include "push_swap.h"
 
-void	sort_five(t_node *pile_a, t_node *pile_b, int size_list)
+void	five_sort(t_node *pile_a, t_node *pile_b, int size_list)
 {
 	int	min;
 
@@ -22,7 +22,7 @@ void	sort_five(t_node *pile_a, t_node *pile_b, int size_list)
 	if (min == 1)
 	{
 		ft_push_pile(&pile_a, &pile_b, "pb");
-		sort_four(pile_a, pile_b, size_list - 1);
+		four_sort(pile_a, pile_b, size_list - 1);
 		ft_push_pile(&pile_b, &pile_a, "pa");
 	}
 	else if (min == 2)
@@ -43,7 +43,7 @@ void	sort_five(t_node *pile_a, t_node *pile_b, int size_list)
 	if (is_sorted(pile_a) == 0)
 	{
 		ft_push_pile(&pile_a, &pile_b, "pb");
-		sort_four(pile_a, pile_b, size_list - 1);
+		four_sort(pile_a, pile_b, size_list - 1);
 		ft_push_pile(&pile_b, &pile_a, "pa");
 	}
 }

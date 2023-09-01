@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 19:04:06 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 19:59:10 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/31 17:48:29 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ void	call_buble_sort(t_node *pile_a, int size_pile_a)
 		tmp = tmp->next;
 		i++;
 	}
-
 	bubble_sort(array_from_stack, size_pile_a);
 	index_pile(pile_a, array_from_stack, size_pile_a);
-	print_pile_index(pile_a);
 	free(array_from_stack);
 }
