@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 18:41:57 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/01 12:14:27 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,29 +65,26 @@ int	size_pile(t_node *pile)
 2 (32 bytes) ROOT LEAK: 0x60000154c060 [16]  length: 1  "U"
 1 (16 bytes) 0x60000154c050 [16]
 */
-void	index_more_small(t_node *pile, int *min, int size)
+void index_more_small(t_node *pile, int *min, int size)
 {
-	t_node	*tmp1;
-	t_node	*tmp2;
-	int		i;
-	int		more_small;
+    if (pile == NULL || size <= 0) {
+        // Gérer les cas d'erreur ici
+        return;
+    }
 
-	tmp1 = pile;
-	i = 1;
-	more_small = tmp1->value;
-	while (i <= size)
-	{
-		tmp2 = pile;
-		while (tmp2 != NULL)
-		{
-			if (tmp2->value < more_small)
-			{
-				*min = i;
-				more_small = tmp1->value;
-			}
-			tmp2 = tmp2->next;
-		}
-		tmp1 = tmp1->next;
-		i++;
-	}
+    int more_small = pile->value;
+    *min = 1;
+    int i = 2; // Commencer à partir de la deuxième position
+
+    t_node *current = pile->next;
+    while (current != NULL)
+    {
+        if (current->value < more_small)
+        {
+            more_small = current->value;
+            *min = i;
+        }
+        current = current->next;
+        i++;
+    }
 }
