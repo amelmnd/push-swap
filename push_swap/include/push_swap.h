@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/30 19:26:44 by amennad          ###   ########.fr       */
+/*   Updated: 2023/08/31 16:05:15 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@ void				ft_reverse_rotate_rrr(t_node **pile_a, t_node **pile_b);
 
 // EXECUTE INSTRUCTION & SORT
 void				execute_instruction(t_node *pile_a, t_node *pile_b);
-void				sort_three(t_node *pile_a);
-void				sort_four(t_node *pile_a, t_node *pile_b, int size_list);
-void				sort_five(t_node *pile_a, t_node *pile_b, int size_list);
+void				three_sort(t_node *pile_a);
+void				four_sort(t_node *pile_a, t_node *pile_b, int size_list);
+void				five_sort(t_node *pile_a, t_node *pile_b, int size_list);
 void				bubble_sort(int arr[], int n);
 void				call_buble_sort(t_node *pile_a, int size_pile_a);
+void				radix_sort(t_node **stack_a, t_node **stack_b);
 
 #endif

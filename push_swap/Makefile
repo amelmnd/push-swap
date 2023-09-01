@@ -29,10 +29,11 @@ SRCS_INSTRUC=	$(DIR_INSTRUC)ft_push.c \
 				$(DIR_INSTRUC)ft_reverse_rotate.c
 
 DIR_SORT= sort/
-SRCS_SORT=	$(DIR_SORT)sort_three.c \
-			$(DIR_SORT)sort_four.c \
-			$(DIR_SORT)sort_five.c \
+SRCS_SORT=	$(DIR_SORT)three_sort.c \
+			$(DIR_SORT)four_sort.c \
+			$(DIR_SORT)five_sort.c \
 			$(DIR_SORT)bubble_sort.c \
+			$(DIR_SORT)radix_sort.c \
 
 SRCS = $(SRCS_UTILS) $(SRCS_PARS) $(SRCS_INSTRUC) execute_instruction.c $(SRCS_SORT) $(ORIGIN)
 OBJS = $(SRCS:.c=.o)
