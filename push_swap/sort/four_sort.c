@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:34:26 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/31 10:55:03 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/04 17:44:13 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	four_sort(t_node *pile_a, t_node *pile_b, int size_list)
 	if (min == 1)
 	{
 		ft_push_pile(&pile_a, &pile_b, "pb");
-		three_sort(pile_a);
+		three_sort(&pile_a);
 		ft_push_pile(&pile_b, &pile_a, "pa");
 	}
 	else if (min == 2)
@@ -37,7 +37,7 @@ void	four_sort(t_node *pile_a, t_node *pile_b, int size_list)
 	if (is_sorted(pile_a) == 0)
 	{
 		ft_push_pile(&pile_a, &pile_b, "pb");
-		three_sort(pile_a);
+		three_sort(&pile_a);
 		ft_push_pile(&pile_b, &pile_a, "pa");
 	}
 }

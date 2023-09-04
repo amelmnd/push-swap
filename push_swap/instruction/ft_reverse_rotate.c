@@ -6,10 +6,11 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:52:13 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/28 17:39:16 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:24:41 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/libft/libft.h"
 #include "push_swap.h"
 
 void	ft_reverse_rotate_pile(t_node **pile, char *pile_name)
