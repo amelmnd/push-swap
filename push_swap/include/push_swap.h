@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:36:54 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/31 16:05:15 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:38:33 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ int					nb_str(char *str, char c);
 void				print_pile_index(t_node *pile);
 
 // UTILS
-void				ft_exit(int status);
+void				ft_exit(int status, t_node *pile);
 int					ft_int_array_len(int *nb);
 void				ft_putstr(char *s);
 int					size_pile(t_node *pile);
 void				index_more_small(t_node *pile, int *min, int size);
+void				ft_free_pile(t_node *pile);
 
 // PARSING
 t_node				*check_arg(int argc, char *argv[], t_node *pile);
@@ -63,7 +64,7 @@ void				ft_reverse_rotate_rrr(t_node **pile_a, t_node **pile_b);
 
 // EXECUTE INSTRUCTION & SORT
 void				execute_instruction(t_node *pile_a, t_node *pile_b);
-void				three_sort(t_node *pile_a);
+void				three_sort(t_node **pile_a);
 void				four_sort(t_node *pile_a, t_node *pile_b, int size_list);
 void				five_sort(t_node *pile_a, t_node *pile_b, int size_list);
 void				bubble_sort(int arr[], int n);

@@ -6,10 +6,11 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 10:23:49 by amennad           #+#    #+#             */
-/*   Updated: 2023/09/01 12:14:27 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:30:45 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/libft/libft.h"
 #include "push_swap.h"
 
 int	is_empty(t_node *pile)
@@ -19,28 +20,33 @@ int	is_empty(t_node *pile)
 	return (0);
 }
 
-void	ft_exit(int status)
+void	ft_free_pile(t_node *pile)
 {
-	if (status == 0)
-		exit(EXIT_SUCCESS);
-	else if (status == -1)
+	t_node	*current;
+	t_node	*next;
+
+	current = pile;
+	while (current != NULL)
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
+		next = current->next;
+		free(current);
+		current = next;
 	}
 }
 
-void	ft_putstr(char *s)
+void	ft_exit(int status, t_node *pile)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	if (status == 0)
 	{
-		write(1, &s[i], 1);
-		i++;
+		ft_free_pile(pile);
+		exit(EXIT_SUCCESS);
 	}
-	write(1, "\n", 1);
+	else if (status == -1)
+	{
+		ft_free_pile(pile);
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
+	}
 }
 
 int	size_pile(t_node *pile)
@@ -60,31 +66,28 @@ int	size_pile(t_node *pile)
 	return (0);
 }
 
-//TODO cette fonction gerer 2 leaks
-/*
-2 (32 bytes) ROOT LEAK: 0x60000154c060 [16]  length: 1  "U"
-1 (16 bytes) 0x60000154c050 [16]
-*/
-void index_more_small(t_node *pile, int *min, int size)
+void	index_more_small(t_node *pile, int *min, int size)
 {
-    if (pile == NULL || size <= 0) {
-        // Gérer les cas d'erreur ici
-        return;
-    }
+	int		more_small;
+	t_node	*current;
+	int		i;
 
-    int more_small = pile->value;
-    *min = 1;
-    int i = 2; // Commencer à partir de la deuxième position
-
-    t_node *current = pile->next;
-    while (current != NULL)
-    {
-        if (current->value < more_small)
-        {
-            more_small = current->value;
-            *min = i;
-        }
-        current = current->next;
-        i++;
-    }
+	more_small = pile->value;
+	*min = 1;
+	i = 2;
+	if (pile == NULL || size <= 0)
+	{
+		return ;
+	}
+	current = pile->next;
+	while (current != NULL)
+	{
+		if (current->value < more_small)
+		{
+			more_small = current->value;
+			*min = i;
+		}
+		current = current->next;
+		i++;
+	}
 }

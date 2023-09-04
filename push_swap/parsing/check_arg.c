@@ -6,7 +6,7 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:20:05 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/31 17:47:52 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:02:04 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	has_duplicate_pile(t_node *pile)
 		{
 			if (next_item->value == current_item->value)
 			{
-				ft_exit(-1);
+				ft_exit(-1, pile);
 			}
 			next_item = next_item->next;
 		}
@@ -56,7 +56,7 @@ t_node	*check_arg(int argc, char *argv[], t_node *pile_a)
 	int	i;
 
 	if (!argv[1][0])
-		ft_exit(0);
+		ft_exit(0, NULL);
 	i = argc - 1;
 	while (argv[i] && i > 0)
 	{
@@ -73,6 +73,6 @@ t_node	*check_arg(int argc, char *argv[], t_node *pile_a)
 	}
 	has_duplicate_pile(pile_a);
 	if (is_sorted(pile_a))
-		ft_exit(0);
+		ft_exit(0, pile_a);
 	return (pile_a);
 }

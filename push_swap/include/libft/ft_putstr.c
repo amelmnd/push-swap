@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   has_valid_arg.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 11:38:04 by amennad           #+#    #+#             */
-/*   Updated: 2023/09/04 18:25:13 by amennad          ###   ########.fr       */
+/*   Created: 2023/02/06 20:21:45 by amennad           #+#    #+#             */
+/*   Updated: 2023/09/04 18:29:50 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft/libft.h"
-#include "push_swap.h"
+#include "libft.h"
 
-int	has_valid_arg(char *value)
+void	ft_putstr(char *str)
 {
-	int		i;
-	char	space;
-
-	i = 0;
-	space = 0;
-	while (value[i])
+	while (*str != '\0')
 	{
-		if (!ft_isdigit(value[i]) && value[i] != '-' && value[i] != ' ')
-		{
-			ft_exit(-1, NULL);
-		}
-		else if (value[i] == ' ')
-		{
-			space = 1;
-		}
-		i++;
+		write(1, str, 1);
+		str++;
 	}
-	return (space);
+	write(1, "\n", 1);
 }

@@ -6,10 +6,11 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 17:44:40 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/28 10:47:53 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:24:44 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/libft/libft.h"
 #include "push_swap.h"
 
 t_node	*ft_push(t_node *pile, int item)
@@ -40,17 +41,3 @@ void	ft_push_pile(t_node **pile_cut, t_node **pile_add, char *pile_name)
 		ft_putstr(pile_name);
 	}
 }
-
-// EXPLICATION DU CODE
-/*
-void	pb(t_node **pile_a, t_node **pile_b) {
-	if (*pile_a) {
-		t_node *node_to_push = *pile_a;
-	// Prendre le premier élément de la pile a
-		*pile_a = (*pile_a)->next;     // Mettre à jour la pile a
-		node_to_push->next = *pile_b;
-	// Attacher le nœud au sommet de la pile b
-		*pile_b = node_to_push;         // Mettre à jour la pile b
-    }
-}
-*/

@@ -6,14 +6,12 @@
 /*   By: amennad <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:13:29 by amennad           #+#    #+#             */
-/*   Updated: 2023/08/31 17:59:58 by amennad          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:21:34 by amennad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft/libft.h"
 #include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 int	nb_str(char *str, char c)
 {
@@ -55,7 +53,7 @@ int	ft_atoi_p(char *str)
 		if (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
 			res = res * 10;
 		if ((res > 2147483648 && neg == 1) || (res > 2147483647 && neg == 0))
-			ft_exit(-1);
+			ft_exit(-1, NULL);
 	}
 	if (neg == 1)
 		return (res * -1);
