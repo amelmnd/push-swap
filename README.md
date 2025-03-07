@@ -1,4 +1,4 @@
-<h1 align="center">Push Swap</h1> 
+<h1 align="center">Push Swap</h1>
 <p align="center">
 	<img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" />
 </p>
@@ -8,21 +8,20 @@
 
 - [Description](#description)
 - [Structure du projet](#structure-du-projet)
-- [Utilisation de push\_swap](#utilisation-de-push_swap)
+- [Utilisation de push_swap](#utilisation-de-push_swap)
 	- [Pre-requis](#pre-requis)
 	- [Compilation du projet](#compilation-du-projet)
 	- [Exécution du projet](#exécution-du-projet)
 - [Ressources utiles](#ressources-utiles)
 - [Test](#test)
 
-
 ## Description
 
 Le but de ce projet est de développer un programme permettant de trier des données entrées par l'utilisateur et de trier ces entiers (positifs et négatifs) dans une pile passée en paramètre par ordre croissant.
 
-Il n'est autorisé de n'utiliser que deux piles avec un ensemble d’instructions limité, et de réaliser le moins de coups possibles.
+Il n'est autorisé d'utiliser que deux piles avec un ensemble d’instructions limité, et de réaliser le moins de coups possibles.
 
-Ce projet est le premier algorithme de tri que j'ai codé, et pour le faire j'ai utilisé l'algorithme Bubble Sort pour indexer les chiffres et je les ai ensuite triés à l'aide de l'algorithme Radix.
+Ce projet est le premier algorithme de tri que j'ai codé, et pour le faire, j'ai utilisé l'algorithme Bubble Sort pour indexer les chiffres et je les ai ensuite triés à l'aide de l'algorithme Radix.
 
 ## Structure du projet
 ```tree
@@ -32,31 +31,30 @@ Ce projet est le premier algorithme de tri que j'ai codé, et pour le faire j'ai
 ├── sort
 └── utils
 ```
-- include et utils : fonctions necessaire au projet
+- include et utils : fonctions nécessaires au projet
 - parsing : fonction de l'input
-- instruction : fonction definissants les actions possibles pour le trie
-- sort ; les fonstions de trie
+- instruction : fonctions définissant les actions possibles pour le tri
+- sort : les fonctions de tri
 
 ## Utilisation de push_swap
 
 ### Pre-requis
 
 * **compilateur `gcc`**
-  
-### Compilation du projet 
+
+### Compilation du projet
 ```shell
 make
 ```
-### Exécution du projet 
+### Exécution du projet
 
 ```shell
 ./push_swap 2 1 3 6 5 8
 ```
-_valeur max gerer 500 nombres aléatoires, en maximum 5500 opérations_
-
+_Valeur max gérée : 500 nombres aléatoires, en maximum 5500 opérations_
 
 ## Ressources utiles
-  [  Number Generator ](https://numbergenerator.org/permutations-and-combinations/list#!numbers=4&lines=5&low=0&high=100&range=1,2,3,4&unique=true&order_matters=true&csv=&oddeven=&oddqty=0&sorted=false&sets=&addfilters=
+[  Number Generator ](https://numbergenerator.org/permutations-and-combinations/list#!numbers=4&lines=5&low=0&high=100&range=1,2,3,4&unique=true&order_matters=true&csv=&oddeven=&oddqty=0&sorted=false&sets=&addfilters=
 )
 
 ## Test
