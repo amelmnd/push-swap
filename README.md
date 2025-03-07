@@ -3,7 +3,7 @@
 	<img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white" />
 </p>
 <div align="center">
-<img src="https://github.com/amelmnd/push-swap/push_swap_demo.gif" width="500" height="300" />
+	<img src="https://github.com/amelmnd/push-swap/blob/main/push_swap_demo.gif" width="500" height="300" />
 </div>
 
 - [Description](#description)
